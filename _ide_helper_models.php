@@ -22,6 +22,8 @@ namespace App\Models{
  * @property string $street
  * @property string $street_number
  * @property int $price
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
  * @method static \Database\Factories\ListingFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Listing newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Listing newQuery()
@@ -31,9 +33,11 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereBeds($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereCity($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereCode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Listing wherePrice($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereStreet($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereStreetNumber($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing whereUpdatedAt($value)
  */
 	class Listing extends \Eloquent {}
 }
