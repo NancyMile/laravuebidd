@@ -14,6 +14,7 @@ namespace App\Models{
 /**
  * App\Models\Listing
  *
+ * @property int $id
  * @property int $beds
  * @property int $baths
  * @property int $area
@@ -34,6 +35,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereCity($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereCode($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Listing wherePrice($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereStreet($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereStreetNumber($value)
