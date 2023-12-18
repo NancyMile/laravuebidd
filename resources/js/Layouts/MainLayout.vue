@@ -12,8 +12,8 @@ import { computed } from 'vue';
 </script>
 
 <template>
-    <Link href="/">Home!</Link>
-    <Link href="show">Show!</Link>
+    <Link href="/listing">Listings</Link>
+    <Link href="/listing/create">New Listing</Link>
     <div v-if="flashSuccess" class="success">
         {{ flashSuccess }}
     </div>
