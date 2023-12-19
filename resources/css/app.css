@@ -14,4 +14,8 @@
     .primary-btn {
         @apply bg-indigo-600 hover:bg-indigo-500 text-white p-2 cursor-pointer font-medium rounded-md
     }
+
+    .input-error {
+        @apply text-red-500 text-sm
+    }
 }
