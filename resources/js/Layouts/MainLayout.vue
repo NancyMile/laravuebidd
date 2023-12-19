@@ -26,7 +26,7 @@ import { computed } from 'vue';
     </header>
 
     <main class="container mx-auto p-4">
-        <div v-if="flashSuccess" class="mb-4 border rounded-md shadow-sm border-green-200 bg-green-300 text-center text-white font-bold p-2">
+        <div v-if="flashSuccess" class="primary-btn">
             {{ flashSuccess }}
         </div>
         <slot>Default</slot>
