@@ -18,11 +18,17 @@ defineProps({
         </Box>
         <div class=" md:col-span-5 flex flex-col gap-3">
             <Box>
+                <template 	#header>
+                    Description
+                </template>
                 <Price :price="listing.price" class="text-2xl font-bold" />
                 <ListingSpace :listing="listing" class="text-lg"/>
                 <ListingAddress :listing="listing" class="text-gray" />
             </Box>
             <Box>
+                <template 	#header>
+                    Offer
+                </template>
                 Making an offer
             </Box>
         </div>
