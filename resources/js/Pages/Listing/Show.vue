@@ -27,9 +27,18 @@ defineProps({
             </Box>
             <Box>
                 <template 	#header>
-                    Offer
+                    Monthly Payment
                 </template>
-                Making an offer
+                <div>
+                    <label class="label">Interest rate (2.5%)</label>
+                    <input type="range" min="0.1" max="30" step="0.1" class="w-full h-4 bg-gray-200 rounded-lg appearance-none cursor-pointer"/>
+                    <label class="label">Duration (25 years)</label>
+                    <input type="range" min="3" max="35" step="1" class="w-full h-4 bg-gray-200 rounded-lg appearance-none cursor-pointer"/>
+                    <div class="text-gray-600" mt-5>
+                        <div class="text-gray-400">Your Monthly Payment</div>
+                        <Price :price="500" class="text-3xl"/>
+                    </div>
+                </div>
             </Box>
         </div>
     </div>
