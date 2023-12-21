@@ -6,6 +6,7 @@ import { computed } from 'vue';
  const flashSuccess =  computed(
     () => page.props.flash.success,
  )
+ const login = () => form.post(route('login.store'))
 </script>
 
 <template>
@@ -25,7 +26,7 @@ import { computed } from 'vue';
         </div>
     </header>
 
-    <main class="container mx-auto p-4">
+    <main class="container mx-auto p-4 w-full">
         <div v-if="flashSuccess" class="primary-btn">
             {{ flashSuccess }}
         </div>
