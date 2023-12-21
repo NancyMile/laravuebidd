@@ -1,5 +1,5 @@
 <script setup>
-import { useForm } from '@inertiajs/vue3';
+import { Link, useForm } from '@inertiajs/vue3';
 
 
 const form = useForm({
@@ -41,6 +41,9 @@ const register = () => form.post(route('user-account.store'))
             </div>
             <div class="mt-4">
                 <button class="primary-btn w-full" type="submit">Register</button>
+                <div class="mt-4 text-center">
+                    <Link :href="route('login')" class="text-sm text-gray-500"> Already have account?</Link>
+                </div>
             </div>
         </div>
     </form>
