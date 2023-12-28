@@ -22,9 +22,9 @@ const user = computed(() => page.props.user)
                     <Link :href="route('listing.index')">Laravue</Link>
                 </div>
                 <div class="flex items-center gap-4" v-if="user">
-                    <div class="text-sm text-gray-500">
+                    <Link :href="route('realtor.listing.index')" class="text-sm text-gray-500">
                         {{ user.name }}
-                    </div>
+                    </Link>
                     <Link :href="route('listing.create')" class="bg-indigo-600 hover:bg-indigo-500 text-white p-2 cursor-pointer font-medium rounded-md">+ New Listing</Link>
                     <Link :href="route('logout')" method="delete" as="button">Logout</Link>
                 </div>
