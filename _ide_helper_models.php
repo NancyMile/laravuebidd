@@ -32,6 +32,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Listing mostRecent()
  * @method static \Illuminate\Database\Eloquent\Builder|Listing newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Listing newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing onlyTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Listing query()
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereArea($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereBaths($value)
@@ -45,6 +46,8 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereStreet($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereStreetNumber($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing withoutTrashed()
  */
 	class Listing extends \Eloquent {}
 }
