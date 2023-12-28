@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Listing;
 use Auth;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use PhpParser\Builder\Function_;
 
@@ -24,25 +25,10 @@ class ListingController extends Controller
 
         return inertia('Listing/Index',[
             'filters' => $filters,
-            'listings' => Listing::orderByDesc('created_at')->when(
-                $filters['priceFrom'] ?? false,
-                fn($query,$value) => $query->where('price', '>=', $value)
-            )->when(
-                $filters['priceTo'] ?? false,
-                fn($query,$value) => $query->where('price', '<=', $value)
-            )->when(
-                $filters['beds'] ?? false,
-                fn($query,$value) => $query->where('beds', (int)$value < 6 ? '=' : '>=', $value)
-            )->when(
-                $filters['baths'] ?? false,
-                fn($query,$value) => $query->when('baths',(int)$value < 6 ? '=' : '>=', $value)
-            )->when(
-                $filters['areaFrom'] ?? false,
-                fn($query,$value) => $query->when('areaFrom', '>=', $value)
-            )->when(
-                $filters['areaTo'] ?? false,
-                fn($query,$value) => $query->where('areaTo', '<=', $value)
-            )->paginate(5)->withQueryString()]);
+            'listings' => Listing::mostRecent()
+            ->filter($filters)
+            ->paginate(5)
+            ->withQueryString()]);
     }
 
     /**
@@ -122,4 +108,5 @@ class ListingController extends Controller
         $listing->delete();
         return redirect()->back()->with('success','Listing was deleted');
     }
+
 }

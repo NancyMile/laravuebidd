@@ -25,14 +25,18 @@ namespace App\Models{
  * @property int $price
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\User|null $owner
+ * @property int $by_user_id
+ * @property-read \App\Models\User $owner
  * @method static \Database\Factories\ListingFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing filter(array $filters)
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing mostRecent()
  * @method static \Illuminate\Database\Eloquent\Builder|Listing newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Listing newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Listing query()
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereArea($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereBaths($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereBeds($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing whereByUserId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereCity($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereCode($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereCreatedAt($value)
@@ -57,6 +61,7 @@ namespace App\Models{
  * @property string|null $remember_token
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property int $is_admin
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Listing> $listings
  * @property-read int|null $listings_count
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
@@ -71,6 +76,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|User whereEmail($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereEmailVerifiedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereIsAdmin($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User wherePassword($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereRememberToken($value)
