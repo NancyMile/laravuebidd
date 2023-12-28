@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\Auth;
 
 class RealtorListingController extends Controller
 {
+    //applying ListingPolicy
+    public function __construct()
+    {
+        $this->authorizeResource(Listing::class,'listing');
+    }
+
     public function index()
     {
         return inertia('Realtor/Index',[
