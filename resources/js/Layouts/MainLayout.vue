@@ -25,7 +25,7 @@ const user = computed(() => page.props.user)
                     <Link :href="route('realtor.listing.index')" class="text-sm text-gray-500">
                         {{ user.name }}
                     </Link>
-                    <Link :href="route('listing.create')" class="bg-indigo-600 hover:bg-indigo-500 text-white p-2 cursor-pointer font-medium rounded-md">+ New Listing</Link>
+                    <Link :href="route('realtor.listing.create')" class="bg-indigo-600 hover:bg-indigo-500 text-white p-2 cursor-pointer font-medium rounded-md">+ New Listing</Link>
                     <Link :href="route('logout')" method="delete" as="button">Logout</Link>
                 </div>
                 <div v-else class=" flex items-center gap-4">

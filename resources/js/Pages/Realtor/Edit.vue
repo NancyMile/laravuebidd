@@ -1,26 +1,30 @@
 <script setup>
 import { useForm } from '@inertiajs/vue3';
-const form = useForm({
-    beds:0,
-    baths:0,
-    area:0,
-    city:null,
-    code:null,
-    street:null,
-    street_number:null,
-    price:0,
+const props =  defineProps({
+    listing: Object,
 })
 
-const create = () => form.post(route('listing.store'))
+const form = useForm({
+    beds: props.listing.beds,
+    baths: props.listing.baths,
+    area: props.listing.area,
+    city: props.listing.city,
+    code: props.listing.code,
+    street: props.listing.street,
+    street_number: props.listing.street_number,
+    price: props.listing.price,
+})
+
+const update = () => form.put(route('realtor.listing.update',{listing: props.listing.id }))
 
 </script>
 
 <template>
-    <form @submit.prevent="create">
+    <form @submit.prevent="update">
         <div class="grid grid-cols-6 gap-4">
             <div class="col-span-2">
                 <label class="label">Beds</label>
-                <input type="text" v-model="form.beds" class="input"/>
+                <input type="text" v-model="form.beds"  class="input"/>
                 <div v-if="form.errors.beds" class="input-error">
                     {{ form.errors.beds }}
                 </div>
@@ -34,21 +38,21 @@ const create = () => form.post(route('listing.store'))
         </div>
         <div class="col-span-2">
             <label class="label">Area</label>
-                <input type="text" v-model="form.area" class="input"/>
+                <input type="text" v-model="form.area"  class="input"/>
                 <div v-if="form.errors.area" class="input-error">
                     {{ form.errors.area }}
                 </div>
         </div>
         <div class="col-span-4">
             <label class="label">City</label>
-                <input type="text" v-model="form.city" class="input"/>
+                <input type="text" v-model="form.city"  class="input"/>
                 <div v-if="form.errors.city" class="input-error">
                     {{ form.errors.city }}
                 </div>
         </div>
         <div class="col-span-2">
             <label class="label">Post Code</label>
-                <input type="text" v-model="form.code" class="input"/>
+                <input type="text" v-model="form.code"  class="input"/>
                 <div v-if="form.errors.code" class="input-error">
                     {{ form.errors.code }}
                 </div>
@@ -69,24 +73,14 @@ const create = () => form.post(route('listing.store'))
         </div>
         <div class="col-span-6">
             <label class="label">Price</label>
-                <input type="text" v-model="form.price" class="input"/>
+                <input type="text" v-model="form.price"  class="input"/>
                 <div v-if="form.errors.price" class="input-error">
                     {{ form.errors.price }}
                 </div>
         </div>
-        <div class="col-span-6">
-            <button type="submit" class="primary-btn">Create</button>
+        <div>
+            <button type="submit" class="primary-btn">Edit</button>
         </div>
         </div>
     </form>
 </template>
-
-<style scoped>
-    label {
-        margin-right: 2em;
-    }
-
-    div {
-        padding: 2px
-    }
-</style>
