@@ -26,6 +26,7 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property int $by_user_id
+ * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property-read \App\Models\User $owner
  * @method static \Database\Factories\ListingFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Listing filter(array $filters)
@@ -41,6 +42,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereCity($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereCode($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Listing wherePrice($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereStreet($value)
