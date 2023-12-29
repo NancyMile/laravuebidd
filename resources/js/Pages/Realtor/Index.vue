@@ -7,13 +7,14 @@ import { Link } from '@inertiajs/vue3';
 import RealtorFilter from '@/Pages/Realtor/Index/Components/RealtorFilter.vue'
 
 defineProps ({
-    listings: Array
+    listings: Array,
+    filters: Object
 })
 </script>
 
 <template>
 <h1 class="text-3xl mb-4">Your Listings</h1>
-<RealtorFilter/>
+<RealtorFilter :filters="filters"/>
 <section class="grid grid-cols-1 lg:grid-cols-2 gap-2">
     <Box v-for="listing in listings" :key="listing.id">
         <div class="flex flex-col md:flex-row gap-2 md:items-center justify-between">
