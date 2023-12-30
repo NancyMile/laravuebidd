@@ -59,13 +59,6 @@ class RealtorListingController extends Controller
         return redirect()->route('realtor.listing.index')->with('success','New listing created.');
     }
 
-    public function destroy(Listing $listing)
-    {
-        $listing->deleteOrFail();
-
-        return redirect()->back()->with('success','Listing deleted.');
-    }
-
     /**
      * Show the form for editing the specified resource.
      */
@@ -92,5 +85,18 @@ class RealtorListingController extends Controller
             ])
         );
         return redirect()->route('realtor.listing.index')->with('success','New listing updated');
+    }
+
+    public function destroy(Listing $listing)
+    {
+        $listing->deleteOrFail();
+
+        return redirect()->back()->with('success','Listing deleted.');
+    }
+
+    public function restore(Listing $listing)
+    {
+        $listing->restore();
+        return redirect()->back()->with('success','Listing was restored');
     }
 }
