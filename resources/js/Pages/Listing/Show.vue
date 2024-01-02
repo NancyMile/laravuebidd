@@ -4,7 +4,8 @@ import ListingSpace from '@/Components/ListingSpace.vue';
 import Price from '@/Components/Price.vue'
 import Box from '@/Components/UI/Box.vue';
 import { ref } from 'vue';
-import {useMonthlyPayment} from '@/Composables/useMonthlyPayment'
+import {useMonthlyPayment} from '@/Composables/useMonthlyPayment';
+import MakeOffer from '@/Pages/Listing/Show/Components/MakeOffer.vue'
 
 const interestRate = ref(2.5);
 const duration = ref(25);
@@ -69,6 +70,7 @@ const { monthlyPayment, totalPaid, totalInterest } = useMonthlyPayment(props.lis
                     </div>
                 </div>
             </Box>
+            <MakeOffer :listing-id="listing.id" :price="listing.price"></MakeOffer>
         </div>
     </div>
 </template>
