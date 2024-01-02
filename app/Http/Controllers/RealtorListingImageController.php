@@ -24,6 +24,13 @@ class RealtorListingImageController extends Controller
     {
         //check if there is a file uploaded
         if($request->hasFile('images')){
+            //validate
+            $request->validate([
+                    'images.*' => 'mimes:jpg,jpeg,png,bmp,gif,svg,webp|max:5000'
+            ],[
+                'images.*.mimes' => 'Image format: jpg, jpeg, bmp, gif, svg, webp'
+            ]);
+
             foreach($request->file('images') as $file){
                 //saves the image on images folder of public
                 $path = $file->store('images', 'public');
