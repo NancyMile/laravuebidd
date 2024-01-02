@@ -11,6 +11,8 @@ class RealtorListingImageController extends Controller
     //this action will render the form
     public  function create(Listing $listing)
     {
+        //load all the related images from the listing
+        $listing->load(['images']);
         return inertia('Realtor/ListingImage/Create',[
             'listing' => $listing
         ]);

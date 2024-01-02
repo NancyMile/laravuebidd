@@ -65,6 +65,7 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string $filename
  * @property int $listing_id
+ * @property-read mixed $src
  * @property-read \App\Models\Listing $listing
  * @method static \Illuminate\Database\Eloquent\Builder|ListingImage newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ListingImage newQuery()
