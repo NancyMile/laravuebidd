@@ -2,11 +2,19 @@
 import Box from '@/Components/UI/Box.vue'
 import { useForm } from '@inertiajs/vue3';
 import { computed } from 'vue';
+import { router } from '@inertiajs/vue3';
+import NProgress from  'nprogress'
 
 const canUpload = computed(() => form.images.length)
 
 const props = defineProps({
     listing: Object
+})
+
+router.on('progress', (event) => {
+    if (event.detail.progress.percentage) {
+        NProgress.set((event.detail.progress.percentage / 100) * 0.9)
+    }
 })
 
 const form = useForm({
