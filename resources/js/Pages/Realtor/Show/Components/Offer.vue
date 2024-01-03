@@ -24,7 +24,7 @@
                     Difference <Price :price="difference"/>
                 </div>
                 <div class="text-gray-500 text-sm">
-                    made by ()
+                    made by {{ offer.bidder.name }}
                 </div>
                 <div class="text-gray-500 text-sm">
                     Mede on {{ madeOn }}
