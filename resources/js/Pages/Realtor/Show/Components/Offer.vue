@@ -30,7 +30,7 @@
                     Mede on {{ madeOn }}
                 </div>
             </div>
-            <Link class="btn-outline text-xs font-medium" as="button">Accept</Link>
+            <Link :href="route('realtor.offer.accept',{offer: offer.id})" method="put" class="btn-outline text-xs font-medium" as="button">Accept</Link>
         </section>
     </Box>
 </template>

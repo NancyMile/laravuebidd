@@ -96,6 +96,7 @@ namespace App\Models{
  * @property-read \App\Models\User $bidder
  * @property-read \App\Models\Listing $listing
  * @method static \Illuminate\Database\Eloquent\Builder|Offer byMe()
+ * @method static \Illuminate\Database\Eloquent\Builder|Offer except(\App\Models\Offer $offer)
  * @method static \Illuminate\Database\Eloquent\Builder|Offer newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Offer newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Offer query()
