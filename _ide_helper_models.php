@@ -85,11 +85,28 @@ namespace App\Models{
 /**
  * App\Models\Offer
  *
- * @property-read \App\Models\User|null $bidder
+ * @property int $id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property int $listing_id
+ * @property int $bidder_id
+ * @property int $amount
+ * @property string|null $accepted_at
+ * @property string|null $rejected_at
+ * @property-read \App\Models\User $bidder
  * @property-read \App\Models\Listing $listing
+ * @method static \Illuminate\Database\Eloquent\Builder|Offer byMe()
  * @method static \Illuminate\Database\Eloquent\Builder|Offer newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Offer newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Offer query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Offer whereAcceptedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Offer whereAmount($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Offer whereBidderId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Offer whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Offer whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Offer whereListingId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Offer whereRejectedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Offer whereUpdatedAt($value)
  */
 	class Offer extends \Eloquent {}
 }

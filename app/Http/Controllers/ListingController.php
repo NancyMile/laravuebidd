@@ -43,6 +43,7 @@ class ListingController extends Controller
 
         //load images related to the listing
         $listing->load(['images']);
-        return inertia('Listing/Show',['listing' => $listing]);
+        $offer = !Auth::user() ? null : $listing->offers()->ByMe()->first();
+        return inertia('Listing/Show',['listing' => $listing, 'offerMade' => $offer]);
     }
 }
