@@ -10,6 +10,9 @@ class ListingOfferController extends Controller
 {
     public function store(Listing $listing, Request $request)
     {
+        //protect from make an offer if there is already one
+        $this->authorize('view',$listing);
+
         $listing->offers()->save(
             Offer::make(
                 $request->validate([
