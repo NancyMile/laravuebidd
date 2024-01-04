@@ -9,6 +9,9 @@ import { computed } from 'vue';
 const user = computed(() => page.props.user)
 
  const login = () => form.post(route('login.store'))
+
+ //maximum number of notification displayed on bell 9
+ const notificationCount = computed (() => Math.min(page.props.user.notificationCount,9))
 </script>
 
 <template>
@@ -22,6 +25,12 @@ const user = computed(() => page.props.user)
                     <Link :href="route('listing.index')">Laravue</Link>
                 </div>
                 <div class="flex items-center gap-4" v-if="user">
+                    <div class="text-gray-500 relative pr-2 pb-2 text-lg">
+                        🔔
+                        <div v-if="notificationCount" class="absolute right-0 top-0 w-5 h-5 bg-red-700 rounded-full text-xs  text-center text-white font-medium border border-white">
+                            {{ notificationCount }}
+                        </div>
+                    </div>
                     <Link :href="route('realtor.listing.index')" class="text-sm text-gray-500">
                         {{ user.name }}
                     </Link>
