@@ -27,6 +27,7 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property int $by_user_id
  * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property string|null $sold_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\ListingImage> $images
  * @property-read int|null $images_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Offer> $offers
@@ -49,6 +50,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Listing wherePrice($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing whereSoldAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereStreet($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereStreetNumber($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereUpdatedAt($value)
