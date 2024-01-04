@@ -13,10 +13,12 @@
     const difference = computed(() => props.offer.amount - props.listingPrice)
 
     const madeOn = computed(() => new Date(props.offer.created_at).toDateString())
+
+    const notSold = computed(() => !props.offer.accepted_at && !props.offer.rejected_at)
 </script>
 <template>
     <Box>
-        <template #header>Offer {{ offer.id }}</template>
+        <template #header>Offer {{ offer.id }}<span v-if="offer.accepted_at" class="bg-green-200 text-green-900 p-1 rounded-md uppercase ml-2">Accepted</span></template>
         <section class="flex  items-center justify-between">
             <div>
                 <Price :price="offer.amount" class="text-xl"/>
@@ -30,7 +32,7 @@
                     Mede on {{ madeOn }}
                 </div>
             </div>
-            <Link :href="route('realtor.offer.accept',{offer: offer.id})" method="put" class="btn-outline text-xs font-medium" as="button">Accept</Link>
+            <Link v-if="notSold" :href="route('realtor.offer.accept',{offer: offer.id})" method="put" class="btn-outline text-xs font-medium" as="button">Accept</Link>
         </section>
     </Box>
 </template>
