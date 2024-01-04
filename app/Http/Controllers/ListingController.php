@@ -26,6 +26,7 @@ class ListingController extends Controller
         return inertia('Listing/Index',[
             'filters' => $filters,
             'listings' => Listing::mostRecent()
+            ->withoutSold()
             ->filter($filters)
             ->paginate(5)
             ->withQueryString()]);

@@ -53,6 +53,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereStreetNumber($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Listing withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing withoutSold()
  * @method static \Illuminate\Database\Eloquent\Builder|Listing withoutTrashed()
  */
 	class Listing extends \Eloquent {}

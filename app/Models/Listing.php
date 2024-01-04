@@ -77,4 +77,12 @@ class Listing extends Model
                 $query->orderBy($value, $filters['order'] ?? 'desc')
         );
     }
+
+    public function scopeWithoutSold(Builder $query): Builder
+    {
+        return $query->whereDoesntHave('offers')
+        ->orWhereHas('offers',
+            fn (Builder $query) => $query->whereNull('accepted_at')
+                ->whereNull('rejected_at'));
+    }
 }
