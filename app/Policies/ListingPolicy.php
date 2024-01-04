@@ -60,7 +60,8 @@ class ListingPolicy
      */
     public function update(User $user, Listing $listing): bool
     {
-        return $user->id == $listing->by_user_id;
+        //only allow update by the owner and only if the listing is not sold.
+        return $listing->sold_at === null && ($user->id == $listing->by_user_id);
     }
 
     /**
