@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Doctrine\DBAL\Schema\Index;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -50,6 +51,14 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
 
     return redirect()->route('listing.index')->with('success','Email verified');
 })->middleware(['auth', 'signed'])->name('verification.verify');
+
+//resend verification email
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+
+    return back()->with('success', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
 
 Route::resource('user-account', UserAccountController::class)->only(['create','store']);
 
