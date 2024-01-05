@@ -17,7 +17,9 @@
             was made</span>
 
             </div>
-            <div><button v-if="!notification.read_at" class="btn-outline text-xs font-medium uppercase">Mask as read</button></div>
+            <Link :href="route('notification.seen',{notification: notification.id})" method="put" as="button"
+                v-if="!notification.read_at" class="btn-outline text-xs font-medium uppercase">Mask as read
+            </Link>
         </div>
     </section>
     <EmptyState v-else> No notifications yet!</EmptyState>
